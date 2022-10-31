@@ -1,5 +1,5 @@
 import logging
-import pyodm
+from pyodm import Node
 
 import azure.functions as func
 
@@ -20,7 +20,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     task = n.get_task(name)
 
     if name:
-        return func.HttpResponse(task.info().status.toString())
+        return func.HttpResponse(task.info().status.name)
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
