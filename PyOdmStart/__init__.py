@@ -22,7 +22,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     files = [os.path.join(dir, f) for f in files]
 
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
-    task = n.create_task(files[:6], name=name)
+    task = n.create_task(files[:4], name=name)
     #task.wait_for_completion()
     #task.download_results()
 
