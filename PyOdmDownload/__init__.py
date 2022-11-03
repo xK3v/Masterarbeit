@@ -18,7 +18,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
     task = n.get_task(name)
-    dir = '/datashare/downloads'
+    dir = '/datashare/downloads/' + name
     task.download_assets(dir)
 
     if name:
