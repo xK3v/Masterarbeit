@@ -36,6 +36,7 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
 
     #num_anomalies = post_process(orthophoto)
 
+    logging.info('Postprocessing done')
     msgout.set(uuid)
 
 

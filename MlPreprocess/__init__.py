@@ -27,6 +27,7 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
     if len(orthophotos) > 0:
         split_orthophotos(dir, orthophotos)
     
+    logging.info('Preprocessing done')
     msgout.set(uuid)
     
 

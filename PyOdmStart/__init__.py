@@ -21,12 +21,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     files = os.listdir(dir)
     files = [os.path.join(dir, f) for f in files]
 
+    logging.info("Files loaded: %s" % len(files))
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
 
     task = n.create_task(files, name=name)
 
     #task.wait_for_completion()
     #task.download_results()
+
+    logging.info("Task created with uuid: %s" % task.info().uuid)
 
     if name:
         #return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")

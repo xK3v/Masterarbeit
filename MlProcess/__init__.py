@@ -35,6 +35,8 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
     #model_name = os.path.join("/mnt/sunshaine/model", "sunshaine.model")
     #num_patches = detect(os.path.join(dir, PATCHES_FOLDER), model_name, 0.75)
 
+
+    logging.info('Processing done')
     msgout.set(uuid)
 
 

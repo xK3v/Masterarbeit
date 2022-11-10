@@ -20,7 +20,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     task = n.get_task(name)
     dir = '/datashare/downloads/' + name
     task.download_assets(dir)
-
+    logging.info('downloaded')
     if name:
         return func.HttpResponse("downloaded")
     else:
