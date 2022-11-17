@@ -32,11 +32,11 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
 
     dir = '/datashare/downloads/' + uuid + "/odm_orthophoto"
 
-    orthophoto = os.path.join(dir, "orthophoto.tif")
+    orthophoto = os.path.join(dir, "odm_orthophoto.tif")
 
-    #num_anomalies = post_process(orthophoto)
+    num_anomalies = post_process(orthophoto)
 
-    logging.info('Postprocessing done')
+    logging.info('Postprocessing done. num_anomalies=' + str(num_anomalies))
     msgout.set(uuid)
 
 

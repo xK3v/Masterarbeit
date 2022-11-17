@@ -32,11 +32,11 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
 
     dir = '/datashare/downloads/' + uuid + "/odm_orthophoto"
 
-    #model_name = os.path.join("/mnt/sunshaine/model", "sunshaine.model")
-    #num_patches = detect(os.path.join(dir, PATCHES_FOLDER), model_name, 0.75)
+    model_name = os.path.join("/datashare/model", "sunshaine.model")
+    num_patches = detect(os.path.join(dir, PATCHES_FOLDER), model_name, 0.75)
 
 
-    logging.info('Processing done')
+    logging.info('Processing done. num_patches=' + str(num_patches))
     msgout.set(uuid)
 
 
