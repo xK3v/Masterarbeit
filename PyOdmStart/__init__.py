@@ -26,16 +26,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
 
     task = n.create_task(files, options = {
-        'dsm' : True,
-        'orthophoto-resolution' : 3,
+        #'dsm' : True,
+        #'orthophoto-resolution' : 3,
         'skip-3dmodel' : True,
-        'force-gps' : True,
-        'ignore-gsd' : True,
-        'resize-to' : -1,
+        #'force-gps' : True,
+        #'ignore-gsd' : True,
+        #'resize-to' : -1,
 
         #'pc-csv' : True,
         #'min-num-features' : 15000,
-        'orthophoto-cutline' : True,
+        #'orthophoto-cutline' : True,
         #'pc-quality' : 'ultra',
         #'mesh-size' : 400000,
         #'texturing-skip-global-seam-leveling' : True,
