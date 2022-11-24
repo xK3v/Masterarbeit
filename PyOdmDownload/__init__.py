@@ -1,4 +1,5 @@
 import logging
+import os
 from pyodm import Node
 
 import azure.functions as func
@@ -18,7 +19,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
     task = n.get_task(name)
-    dir = '/datashare/downloads/' + name
+    dir = os.path.join('/datashare/downloads/', name)
     task.download_assets(dir)
     logging.info('downloaded')
     if name:

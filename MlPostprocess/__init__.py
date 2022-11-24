@@ -30,7 +30,7 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
 
     uuid = msg.get_body().decode('utf-8')
 
-    dir = '/datashare/downloads/' + uuid + "/odm_orthophoto"
+    dir = os.path.join('/datashare/downloads', uuid, 'odm_orthophoto')
 
     orthophoto = os.path.join(dir, "odm_orthophoto.tif")
 

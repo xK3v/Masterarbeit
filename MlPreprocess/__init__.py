@@ -21,7 +21,7 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
                  msg.get_body().decode('utf-8'))
     uuid = msg.get_body().decode('utf-8')
 
-    dir = '/datashare/downloads/' + uuid + "/odm_orthophoto"
+    dir = os.path.join('/datashare/downloads', uuid, 'odm_orthophoto')
     orthophotos = os.listdir(dir)
     orthophotos = [f for f in orthophotos if fnmatch.fnmatch(f, ORTHOPHOTO_PATTERN)]
     if len(orthophotos) > 0:

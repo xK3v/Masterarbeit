@@ -30,7 +30,8 @@ def main(msg: func.QueueMessage, msgout: func.Out[func.QueueMessage]) -> None:
 
     uuid = msg.get_body().decode('utf-8')
 
-    dir = '/datashare/downloads/' + uuid + "/odm_orthophoto"
+    dir = os.path.join('/datashare/downloads', uuid, 'odm_orthophoto')
+
 
     model_name = os.path.join("/datashare/model", "sunshaine.model")
     num_patches = detect(os.path.join(dir, PATCHES_FOLDER), model_name, 0.75)
