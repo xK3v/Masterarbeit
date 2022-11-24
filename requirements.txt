@@ -12,7 +12,7 @@ fonttools==4.33.3
 GDAL==3.2.2.1
 idna==3.3
 imageio==2.19.3
-joblib==1.1.0
+joblib==1.2.0
 kiwisolver==1.4.3
 matplotlib==3.5.2
 networkx==2.8.4
