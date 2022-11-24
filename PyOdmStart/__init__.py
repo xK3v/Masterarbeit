@@ -17,7 +17,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         else:
             name = req_body.get('name')
     
-    #dir = '/datashare/Fotos_3/T'
     dir = os.path.join('/datashare/', name)
     files = os.listdir(dir)
     files = [os.path.join(dir, f) for f in files]
@@ -30,15 +29,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         'dsm' : True,
         'orthophoto-resolution' : 1,
         'skip-3dmodel' : True,
-        #'force-gps' : True,
-        #'ignore-gsd' : True,
         'resize-to' : -1,
-        #'pc-csv' : True,
         'min-num-features' : 25000,
         'orthophoto-cutline' : False,
         'pc-quality' : 'ultra',
         'mesh-size' : 600000,
-        #'texturing-skip-global-seam-leveling' : True,
         'feature-quality' : 'ultra',
         'depthmap-resolution' : 2000,
         'dem-resolution' : 1,
@@ -51,11 +46,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("Task created with uuid: %s" % task.info().uuid)
 
     if name:
-        #return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-        #return func.HttpResponse("Task created with name: %s" % task.info.name)
         return func.HttpResponse(task.info().uuid)
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             "No foldername provided",
              status_code=200
         )
