@@ -17,7 +17,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         else:
             name = req_body.get('name')
     
-    dir = '/datashare/Fotos_3/T'
+    #dir = '/datashare/Fotos_3/T'
+    dir = os.path.join('/datashare/', name)
     files = os.listdir(dir)
     files = [os.path.join(dir, f) for f in files]
 
@@ -46,9 +47,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         #'mesh-octree-depth' : 12,
         #'auto-boundary' : True
     }, name=name)
-
-    #task.wait_for_completion()
-    #task.download_results()
 
     logging.info("Task created with uuid: %s" % task.info().uuid)
 
