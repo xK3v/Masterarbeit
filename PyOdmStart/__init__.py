@@ -27,25 +27,25 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     n = Node('nodeodm-sunshaine.azurewebsites.net', 80)
 
     task = n.create_task(files, options = {
-        #'dsm' : True,
-        #'orthophoto-resolution' : 3,
+        'dsm' : True,
+        'orthophoto-resolution' : 1,
         'skip-3dmodel' : True,
         #'force-gps' : True,
         #'ignore-gsd' : True,
-        #'resize-to' : -1,
-
+        'resize-to' : -1,
         #'pc-csv' : True,
-        #'min-num-features' : 15000,
-        #'orthophoto-cutline' : True,
-        #'pc-quality' : 'ultra',
-        #'mesh-size' : 400000,
+        'min-num-features' : 25000,
+        'orthophoto-cutline' : False,
+        'pc-quality' : 'ultra',
+        'mesh-size' : 600000,
         #'texturing-skip-global-seam-leveling' : True,
-        #'feature-quality' : 'ultra',
-        #'depthmap-resolution' : 1280,
-        #'dem-resolution' : 3,
-        #'gps-accuracy' : 3,
-        #'mesh-octree-depth' : 12,
-        #'auto-boundary' : True
+        'feature-quality' : 'ultra',
+        'depthmap-resolution' : 2000,
+        'dem-resolution' : 1,
+        'gps-accuracy' : 3,
+        'mesh-octree-depth' : 13,
+        'auto-boundary' : True,
+        'radiometric-calibration' : "camera"
     }, name=name)
 
     logging.info("Task created with uuid: %s" % task.info().uuid)
